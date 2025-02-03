@@ -1,0 +1,14 @@
+name: Build Docker image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_docker_image:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile -t my-horoscope:latest
